@@ -10,8 +10,3 @@ uart:
   rx_pin: GPIO3
   rx_buffer_size: 1024
   parity: EVEN
-
-sensor:
-  - platform: internal_temperature
-    name: ${internal_esp_temperature}
-    entity_category: diagnostic
