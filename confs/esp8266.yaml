@@ -4,7 +4,7 @@ esp8266:
     platform_version: 4.2.1
 
 uart:
-  id: ecodan_uart
+  id: uart_ecodan
   baud_rate: 2400
   tx_pin: GPIO1
   rx_pin: GPIO3
