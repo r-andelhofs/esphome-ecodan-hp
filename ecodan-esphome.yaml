@@ -7,14 +7,13 @@ http_request:
   buffer_size_tx: 20248
 
 ota:
-  - platform: esphome
-  - platform: http_request
-#  password: !secret heatpump_ota_password
+  platform: esphome
+  password: !secret heatpump_ota_password
 
 api:
   reboot_timeout: 0s
-#  encryption:
-#    key: !secret heatpump_encryption_key
+  encryption:
+    key: !secret heatpump_encryption_key
 
 # external_components:
 # - source:
@@ -38,23 +37,23 @@ api:
 #  wifi: !include confs/wifi.yaml
 
 external_components:
-  - source: github://gekkekoe/esphome-ecodan-hp@main
+  - source: github://r-andelhofs/esphome-ecodan-hp@main
     components: [ ecodan ]
     refresh: always
 
 packages:
   remote_package:
-    url: https://github.com/gekkekoe/esphome-ecodan-hp/
+    url: https://github.com/r-andelhofs/esphome-ecodan-hp/
     ref: main
     refresh: always
     files: [ 
             confs/base.yaml,            # required
             confs/request-codes.yaml,   # disable if your unit does not support request codes (service menu)
-            confs/esp32s3.yaml,         # confs/esp32.yaml, for regular board
+            confs/esp8266.yaml,         # confs/esp32.yaml, for regular board
             #confs/esp32s3-led.yaml,    # atom s3 status leds
             confs/zone1.yaml,
             ## enable if you want to use zone 2
-            #confs/zone2.yaml,
+            confs/zone2.yaml,
             ## enable label language file
             confs/ecodan-labels-en.yaml,
             #confs/ecodan-labels-nl.yaml,
@@ -70,19 +69,19 @@ packages:
            ]
 
 # enable logger
-logger:
-  baud_rate: 115200
-  logs:
-    esp32.preferences: ERROR
-    sensor: ERROR
-    text_sensor: ERROR
-    binary_sensor: ERROR
-    switch: ERROR
-    button: ERROR
-    number: ERROR
-    climate: ERROR
-    component: ERROR
-    ecodan.component: ERROR
+#logger:
+#  baud_rate: 115200
+#  logs:
+#    esp32.preferences: ERROR
+#    sensor: ERROR
+#    text_sensor: ERROR
+#    binary_sensor: ERROR
+#    switch: ERROR
+#    button: ERROR
+#    number: ERROR
+#    climate: ERROR
+#    component: ERROR
+#    ecodan.component: ERROR
 
 # Enable Web server.
 web_server:

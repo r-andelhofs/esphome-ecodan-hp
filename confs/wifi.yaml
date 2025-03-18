@@ -8,6 +8,15 @@ wifi:
     ssid: "${name}"
     password: "configesp"
     ap_timeout: 15s
+  manual_ip:
+    # Set this to the IP of the ESP
+    static_ip: !secret wifi_ip
+    # Set this to the IP address of the router. Often ends with .1
+    gateway: !secret wifi_gateway
+    # The subnet of the network. 255.255.255.0 works for most home networks.
+    subnet: !secret wifi_subnet
+    dns1: !secret wifi_dns1
+    dns2: !secret wifi_dns2
 
 captive_portal:
   id: id_captive_portal
